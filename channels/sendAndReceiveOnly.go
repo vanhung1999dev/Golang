@@ -6,7 +6,8 @@ import (
 )
 
 var wg = sync.WaitGroup{}
-var channel = make(chan int)
+var capacityOfChannel = 2
+var channel = make(chan int, capacityOfChannel)
 
 func main() {
 	wg.Add(2)
@@ -17,8 +18,10 @@ func main() {
 	}(channel)
 
 	go func(ch chan<- int) {
-		number := 10
-		ch <- number
+		number1 := 10
+		number2 := 11
+		ch <- number1
+		ch <- number2
 		wg.Done()
 	}(channel)
 	wg.Wait()
