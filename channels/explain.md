@@ -16,3 +16,7 @@ myVar := <- channelName // receive data from channel
 - Note: `Data was send is shallow copy, not by reference` 
 - If we send 2 times, but only receive one, it will cause error, we can use buffer to store it `chan int, capacity`
 - Example `var channel = make(chan int, 20)`
+
+</br>
+
+## For...Range and Close 
