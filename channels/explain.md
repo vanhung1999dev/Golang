@@ -20,3 +20,19 @@ myVar := <- channelName // receive data from channel
 </br>
 
 ## For...Range and Close 
+- We can get and check data is oki from channel like that `var data, isOk := <- channel` with isOk is variable can check, variable can be any name
+
+</br>
+
+## Select
+
+```
+select {
+    case i := <- channel
+        doSOmething
+    case j := <- chanel1
+        doSomething
+    default: 
+        break
+}
+```
