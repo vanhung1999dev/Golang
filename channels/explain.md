@@ -7,3 +7,10 @@ goroutine and receive those values into another goroutine.
 channelName <- value // send data to channel
 myVar := <- channelName // receive data from channel
 ```
+
+</br>
+
+## SendOnly and ReceiveOnly
+- `chan <-` // send only
+- `<- chan` // Receive only
+- Note: `Data was send is shallow copy, not by reference` 
