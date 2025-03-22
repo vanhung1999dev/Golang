@@ -9,6 +9,11 @@ func main() {
 	fmt.Println(desc, sum)
 
 	fmt.Println("sum3", add3(1,2))
+
+	anonyms := func(x int) int {
+		return x
+	}
+	fmt.Println("anonyms", anonyms(2))
 }
 
 func add(num1 int, num2 int) int {
