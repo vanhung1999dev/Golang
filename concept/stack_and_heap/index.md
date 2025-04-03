@@ -1,0 +1,1 @@
+- [Understanding Allocations: the Stack and the Heap ](https://www.youtube.com/watch?v=ZMZpH4yT7M0&t=474s)
