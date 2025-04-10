@@ -161,6 +161,41 @@ Bool: true
 
 ```
 
+## ⚙️ How It Works Internally
+
+Every interface in Go is a fat pointer: <br>
+
+```
+type iface struct {
+    tab  *itab         // method/type info
+    data unsafe.Pointer // pointer to the actual value
+}
+
+```
+
+When you do: <br>
+
+```
+s := i.(string)
+
+```
+
+Go’s runtime does this: <br>
+
+### 1. Check if i.tab.\_type matches runtime.\_type of string
+
+- It compares the concrete type of i to the type you're asserting (string)
+- This is a runtime check using Go’s internal type system
+
+### 2. If it matches:
+
+- Go casts the data pointer to the desired type
+- You now get back a string value
+
+### 3. If it doesn’t match:
+
+- Panic! Unless you used the ok form.
+
 ## Empty Interfaces (interface{})
 
 An empty interface (interface{}) is an interface that has no methods. It can hold values of any type, making it similar to Object in other languages like Java or C#. The empty interface is often used to accept any type, and it’s one of the core components of Go's type system when working with **generic-like patterns**. <br>
